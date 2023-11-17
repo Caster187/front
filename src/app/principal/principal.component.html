@@ -1,0 +1,50 @@
+<form>
+    <img src="assets/veiculo.png">
+
+    <input type="text" placeholder="Modelo"  class="form-control" name="modelo" [(ngModel)]="veiculo.modelo">
+    <input type="text" placeholder="Marca" class="form-control"name="marca"[(ngModel)]="veiculo.marca">
+    <input type="text" placeholder="Cor" class="form-control"name="cor"[(ngModel)]="veiculo.cor">
+    <input type="number" placeholder="Ano de Fabricação" class="form-control" name="anoFabricacao"[(ngModel)]="veiculo.anoFabricacao">
+    <input type="text" placeholder="Placa" class="form-control"name="placa"[(ngModel)]="veiculo.placa">
+    <input type="checkbox" class="form-check-input" name="reservado" [(ngModel)]="veiculo.reservado">
+<label class="form-check-label">Reservado</label>
+
+    
+    
+
+    <input type="button" value="Cadastrar" *ngIf="btnCadastro"class="btn btn-primary"(click)="cadastrar()">
+    <input type="button" value="Alterar" *ngIf="btnCadastro"class="btn btn-warning"(click)="editar()">
+    <input type="button" value="Remover" *ngIf="btnCadastro"class="btn btn-danger"(click)="remover()">
+</form>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Cor</th>
+                <th>Ano de Fabricação</th>
+                <th>Placa</th>
+                <th>Reservado</th>
+                <th>Selecionar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let v of veiculos; index as i">
+            
+            <td>{{ v.id }}</td>
+            <td>{{ v.modelo }}</td>
+            <td>{{ v.marca }}</td>
+            <td>{{ v.cor }}</td>
+            <td>{{ v.anoFabricacao }}</td>
+            <td>{{ v.placa }}</td>
+            <td>{{ v.reservado }}</td>
+            <td><button class="btn btn-success"(click)="selecionarVeiculo(i)">Selecionar</button></td>
+        </tr>
+    </tbody>
+    
+</table>
